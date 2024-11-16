@@ -1,0 +1,194 @@
+.container-one {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+.weather-card-one {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;  
+    padding: 20px;
+    text-align: center;
+}
+/* static\styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px; /* Увеличиваем ширину контейнера для более удобного отображения */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0066cc;
+}
+
+.weather-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-form input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.weather-form button {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.weather-form button:hover {
+    background-color: #005bb5;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрируем карточки, когда они занимают всю ширину */
+    gap: 20px;
+}
+
+.weather-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;  /* По умолчанию карточки занимают всю ширину (для мобильных устройств) */
+    margin: 10px 0;
+    text-align: center;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.weather-info {
+    margin-top: 10px;
+}
+
+.weather-detail {
+    margin: 10px 0;
+}
+
+.weather-detail .label {
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #005bb5;
+}
+
+/* Стиль для кнопки "Show Weather for 4 Cities" */
+.show-cities-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #42a5f5, #478ed1);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.show-cities-button:hover {
+    background: linear-gradient(135deg, #478ed1, #42a5f5);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.show-cities-button:active {
+    transform: translateY(1px);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Медиазапрос для экранов шире 768px */
+@media (min-width: 768px) {
+    .weather-card {
+        width: 40%;  /* Карточки занимают 45% ширины, чтобы помещаться по две в строке */
+    }
+
+    .cards-container {
+        justify-content: space-between; /* Разделяем карточки по строкам для больших экранов */
+    }
+}
+.button-container {
+    display: flex;
+    flex-direction: column; /* Выстраиваем кнопки в столбик */
+    align-items: center; /* Центрируем кнопки по горизонтали */
+    gap: 10px; /* Добавляем промежуток между кнопками */
+}
+
+.city-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Четыре колонки с одинаковой шириной */
+    gap: 10px; /* Промежуток между колонками */
+}
+
+.city-container {
+    border: 1px solid #ccc; /* Добавляем рамку вокруг каждой колонки для лучшего восприятия */
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9; /* Светло-серый фон для колонок */
+}
+
+.cards-container-week {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.weather-card-week {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+
