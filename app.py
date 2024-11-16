@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file
 import folium
 import requests
 import datetime
@@ -94,13 +94,18 @@ def get_weather_week(city_name):
     else:
         return None
 
-  
+@app.route('/sw.js')
+def serve_sw():
+    return send_file('sw.js', mimetype='application/javascript')
+
+@app.route('/manifest.json')
+def serve_manifest():
+    return send_file('manifest.json', mimetype='application/manifest+json')
+
 @app.route('/')
 def index():
-    # Создаем карту
-
     folium_map = folium.Map(location=[48.0, 18.0], zoom_start=5)
-    folium_map.get_root().header.add_child(folium.CssLink('/static/css/style.css'))
+    folium_map.get_root().header.add_child(folium.CssLink('css/style.css'))
     
     for city in cities:
         # Получаем данные о погоде
