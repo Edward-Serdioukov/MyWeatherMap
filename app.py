@@ -155,9 +155,22 @@ def index():
     <html>
     <head>
         <title>Travel weather map</title>
-        {{ folium_map | safe }}
+        <script>
+
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register("/sw.js").then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+        }
+
+    </script>
     </head>
     <body>
+         {{ folium_map | safe }}   
     </body>
     </html>
     """, folium_map=folium_map._repr_html_())
