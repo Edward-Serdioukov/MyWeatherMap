@@ -104,7 +104,7 @@ def index():
     for city in cities:
         # Получаем данные о погоде
         ###weather_today, weather_week = get_weather(city['lat'], city['lon'])
-        weather_today = get_weather_day(city['name'])
+        #weather_today = get_weather_day(city['name'])
         # Создаем всплывающее окно с прогнозом на неделю
         #popup_html += f"<img src='{weather_today['icon']}'><br>"
         #popup_html += f"{weather_today['temperature']}°C, {weather_today['description']}<br>"
@@ -143,7 +143,7 @@ def index():
             location=(city['lat'], city['lon']),
             popup=popup_html,
             #icon=folium.DivIcon(html=f"""<div style="font-family: courier new; color: red; font-weight: bold">{city['name']}, {weather_today['temperature']}°C</div>"""),
-            tooltip=f"{city['name']}: {weather_today['description']}, {round(weather_today['temperature'], 1)}°C"
+            tooltip=f"{city['name']}: {weather_week[0]['day']}, {round(weather_week[0]['temperature'])}°C, {weather_week[0]['description']}"
         ).add_to(folium_map)
         
         #for day in weather_week:
@@ -162,31 +162,8 @@ def index():
     </html>
     """, folium_map=folium_map._repr_html_())
 
-def get_weather2(lat, lon):
-    # Используем One Call API
-    url = f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={API_KEY}&units=metric&lang=ru'
-    response = requests.get(url)
-    data = response.json()
-
-    # Текущая погода
-    current = data['current']
-    weather_today = {
-        'weather': current['weather'][0]['description'],
-        'temp': round(current['temp'], 1)
-    }
-
-    # Прогноз на неделю
-    weather_week = []
-    for day_data in data['daily'][1:8]:  # Следующие 7 дней
-        date = datetime.fromtimestamp(day_data['dt']).strftime('%d.%m')
-        weather_week.append({
-            'date': date,
-            'weather': day_data['weather'][0]['description'],
-            'temp': round(day_data['temp']['day'], 1)
-        })
-
-    return weather_today, weather_week
 
 if __name__ == '__main__':
     #app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("PORT", 3000)))
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
