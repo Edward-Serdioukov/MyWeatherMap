@@ -155,7 +155,7 @@ def index():
     <!DOCTYPE html>
     <html>
     <head>
-        <link rel="stylesheet" href="/static/ss/style.css">
+        <link rel="stylesheet" href="/static/css/style.css">
         <title>Travel weather map</title>
         <script>
 
