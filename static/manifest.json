@@ -1,11 +1,11 @@
 {
-  "name": "My Weather App",
-  "short_name": "MyWeather",
+  "name": "My Weather Map App",
+  "short_name": "MyWeatherMap",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0066cc",
-  "description": "Get weather information for different cities.",
+  "description": "Get weather information for different cities on map.",
   "icons": [
     {
       "src": "/static/icons/icon-192x192.png",
