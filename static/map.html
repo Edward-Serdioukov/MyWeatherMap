@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1997a8aed530defca874c21840ede87d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_1997a8aed530defca874c21840ede87d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1997a8aed530defca874c21840ede87d = L.map(
+                "map_1997a8aed530defca874c21840ede87d",
+                {
+                    center: [48.0, 18.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_29438e688e4a095be4dd21c0c14d18c2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_29438e688e4a095be4dd21c0c14d18c2.addTo(map_1997a8aed530defca874c21840ede87d);
+        
+    
+            var marker_571884761ce0b6be4294cf85970ca670 = L.marker(
+                [45.4642, 9.1895],
+                {}
+            ).addTo(map_1997a8aed530defca874c21840ede87d);
+        
+    
+        var popup_2a3f8e3881a83a071bb39bf0f34f7e5a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa6b6167b256500882285a1636b8c0f2 = $(`<div id="html_fa6b6167b256500882285a1636b8c0f2" style="width: 100.0%; height: 100.0%;"><b>Milan</b><br><table border='1' style='width: 100%; border-collapse: collapse;'><tr><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>10.6°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Sunday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>11.3°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Monday</b><br><img src='http://openweathermap.org/img/wn/03d@2x.png'><br><b>10.7°C</b><br><i>scattered clouds</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Tuesday</b><br><img src='http://openweathermap.org/img/wn/04d@2x.png'><br><b>8.8°C</b><br><i>overcast clouds</i><br></div><div style='margin-bottom: 10px;'><b>Wednesday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>11.6°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Thursday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>6.4°C</b><br><i>rain and snow</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Friday</b><br><img src='http://openweathermap.org/img/wn/02d@2x.png'><br><b>8.3°C</b><br><i>few clouds</i><br></div><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/03d@2x.png'><br><b>7.3°C</b><br><i>scattered clouds</i><br></div></td></tr></table></div>`)[0];
+                popup_2a3f8e3881a83a071bb39bf0f34f7e5a.setContent(html_fa6b6167b256500882285a1636b8c0f2);
+            
+        
+
+        marker_571884761ce0b6be4294cf85970ca670.bindPopup(popup_2a3f8e3881a83a071bb39bf0f34f7e5a)
+        ;
+
+        
+    
+    
+            marker_571884761ce0b6be4294cf85970ca670.bindTooltip(
+                `<div>
+                     Milan: Saturday, 11°C, clear sky
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d7d2f03f2cdbd55c2357d61996a16ba7 = L.marker(
+                [50.0878, 14.4205],
+                {}
+            ).addTo(map_1997a8aed530defca874c21840ede87d);
+        
+    
+        var popup_03ee36f86cba79967da061ad89cc36a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_56116187f9eabd4a452570ef681e8dcb = $(`<div id="html_56116187f9eabd4a452570ef681e8dcb" style="width: 100.0%; height: 100.0%;"><b>Prague</b><br><table border='1' style='width: 100%; border-collapse: collapse;'><tr><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>6.6°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Sunday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>6.7°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Monday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>6.6°C</b><br><i>light rain</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Tuesday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>8.1°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Wednesday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>1.3°C</b><br><i>rain and snow</i><br></div><div style='margin-bottom: 10px;'><b>Thursday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>1.0°C</b><br><i>light snow</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Friday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>-0.3°C</b><br><i>light snow</i><br></div><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>0.6°C</b><br><i>rain and snow</i><br></div></td></tr></table></div>`)[0];
+                popup_03ee36f86cba79967da061ad89cc36a3.setContent(html_56116187f9eabd4a452570ef681e8dcb);
+            
+        
+
+        marker_d7d2f03f2cdbd55c2357d61996a16ba7.bindPopup(popup_03ee36f86cba79967da061ad89cc36a3)
+        ;
+
+        
+    
+    
+            marker_d7d2f03f2cdbd55c2357d61996a16ba7.bindTooltip(
+                `<div>
+                     Prague: Saturday, 7°C, clear sky
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dbbd66e8709721d10f1b5142f4cc9d5c = L.marker(
+                [49.96489, 12.7007],
+                {}
+            ).addTo(map_1997a8aed530defca874c21840ede87d);
+        
+    
+        var popup_cb816480d6802a57f181ea21282d5fba = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4d031bbafd6c273fc854aa32301175c5 = $(`<div id="html_4d031bbafd6c273fc854aa32301175c5" style="width: 100.0%; height: 100.0%;"><b>Marianske Lazne</b><br><table border='1' style='width: 100%; border-collapse: collapse;'><tr><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>4.4°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Sunday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>1.9°C</b><br><i>light snow</i><br></div><div style='margin-bottom: 10px;'><b>Monday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>1.6°C</b><br><i>rain and snow</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Tuesday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>4.4°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Wednesday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>-1.6°C</b><br><i>rain and snow</i><br></div><div style='margin-bottom: 10px;'><b>Thursday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>-2.8°C</b><br><i>snow</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Friday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>-4.1°C</b><br><i>snow</i><br></div><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>-3.6°C</b><br><i>rain and snow</i><br></div></td></tr></table></div>`)[0];
+                popup_cb816480d6802a57f181ea21282d5fba.setContent(html_4d031bbafd6c273fc854aa32301175c5);
+            
+        
+
+        marker_dbbd66e8709721d10f1b5142f4cc9d5c.bindPopup(popup_cb816480d6802a57f181ea21282d5fba)
+        ;
+
+        
+    
+    
+            marker_dbbd66e8709721d10f1b5142f4cc9d5c.bindTooltip(
+                `<div>
+                     Marianske Lazne: Saturday, 4°C, clear sky
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bf45a3afc7b2e70da78506bf98d5ead5 = L.marker(
+                [45.4944, 12.3714],
+                {}
+            ).addTo(map_1997a8aed530defca874c21840ede87d);
+        
+    
+        var popup_aecac5da8626eb3cc7d8f0a9460ec054 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_902901b043b86baa72603c9281b1016e = $(`<div id="html_902901b043b86baa72603c9281b1016e" style="width: 100.0%; height: 100.0%;"><b>Venezia</b><br><table border='1' style='width: 100%; border-collapse: collapse;'><tr><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>10.4°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Sunday</b><br><img src='http://openweathermap.org/img/wn/01d@2x.png'><br><b>9.0°C</b><br><i>clear sky</i><br></div><div style='margin-bottom: 10px;'><b>Monday</b><br><img src='http://openweathermap.org/img/wn/04d@2x.png'><br><b>10.3°C</b><br><i>overcast clouds</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Tuesday</b><br><img src='http://openweathermap.org/img/wn/04d@2x.png'><br><b>11.1°C</b><br><i>overcast clouds</i><br></div><div style='margin-bottom: 10px;'><b>Wednesday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>8.8°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Thursday</b><br><img src='http://openweathermap.org/img/wn/13d@2x.png'><br><b>6.2°C</b><br><i>rain and snow</i><br></div></td><td style='padding: 10px; vertical-align: top;'><div style='margin-bottom: 10px;'><b>Friday</b><br><img src='http://openweathermap.org/img/wn/10d@2x.png'><br><b>6.1°C</b><br><i>light rain</i><br></div><div style='margin-bottom: 10px;'><b>Saturday</b><br><img src='http://openweathermap.org/img/wn/04d@2x.png'><br><b>4.9°C</b><br><i>overcast clouds</i><br></div></td></tr></table></div>`)[0];
+                popup_aecac5da8626eb3cc7d8f0a9460ec054.setContent(html_902901b043b86baa72603c9281b1016e);
+            
+        
+
+        marker_bf45a3afc7b2e70da78506bf98d5ead5.bindPopup(popup_aecac5da8626eb3cc7d8f0a9460ec054)
+        ;
+
+        
+    
+    
+            marker_bf45a3afc7b2e70da78506bf98d5ead5.bindTooltip(
+                `<div>
+                     Venezia: Saturday, 10°C, clear sky
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

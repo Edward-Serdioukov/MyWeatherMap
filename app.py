@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template
 import folium
 import requests
 import datetime
@@ -100,7 +100,7 @@ def index():
     # Создаем карту
 
     folium_map = folium.Map(location=[48.0, 18.0], zoom_start=5)
-    folium_map.get_root().header.add_child(folium.CssLink('css/style.css'))
+    folium_map.get_root().header.add_child(folium.CssLink('/static/css/style.css'))
     
     for city in cities:
         # Получаем данные о погоде
@@ -147,37 +147,10 @@ def index():
             tooltip=f"{city['name']}: {weather_week[0]['day']}, {round(weather_week[0]['temperature'])}°C, {weather_week[0]['description']}"
         ).add_to(folium_map)
         
-        #for day in weather_week:
-        ##    popup_html += f"{day['day']}:</br><img src='{day['icon']}'></br>{day['temperature']}°C </br>{day['description']}<br>"
-            
-    # Рендерим карту в HTML
-    return render_template_string("""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <link rel="stylesheet" href="/static/css/style.css">
-        <title>Travel weather map</title>
-        <script>
 
-        if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register("/sw.js").then(function(registration) {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-            console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-        }
+    folium_map.save('static/map.html')
+    return render_template('index.html',  title="My Weather Map", map_url='map.html')
 
-    </script>
-    </head>
-    <body>
-        <div class="map-container">
-        {{ folium_map | safe }} 
-         </div>
-    </body>
-    </html>
-    """, folium_map=folium_map._repr_html_())
 
 
 if __name__ == '__main__':
