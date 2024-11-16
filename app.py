@@ -100,6 +100,7 @@ def index():
     # Создаем карту
 
     folium_map = folium.Map(location=[48.0, 18.0], zoom_start=5)
+    folium_map.get_root().header.add_child(folium.CssLink('css/style.css'))
     
     for city in cities:
         # Получаем данные о погоде
@@ -154,6 +155,7 @@ def index():
     <!DOCTYPE html>
     <html>
     <head>
+        <link rel="stylesheet" href="/static/ss/style.css">
         <title>Travel weather map</title>
         <script>
 
@@ -170,7 +172,9 @@ def index():
     </script>
     </head>
     <body>
-         {{ folium_map | safe }}   
+        <div class="map-container">
+        {{ folium_map | safe }} 
+         </div>
     </body>
     </html>
     """, folium_map=folium_map._repr_html_())
