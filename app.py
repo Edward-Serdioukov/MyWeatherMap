@@ -104,7 +104,7 @@ def serve_manifest():
 
 @app.route('/')
 def index():
-    folium_map = folium.Map(location=[48.0, 18.0], zoom_start=5)
+    folium_map = folium.Map(location=[48.0, 16.0], zoom_start=5)
     folium_map.get_root().header.add_child(folium.CssLink('css/style.css'))
     
     for city in cities:
