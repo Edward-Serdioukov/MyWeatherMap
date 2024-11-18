@@ -1,11 +1,15 @@
 /* static/css/style.css */
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #85c8cc 0%, #76b3e8 100%);
+    color: #333;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 
 nav {
     background-color: #333;
@@ -80,19 +84,10 @@ iframe {
     border: none;
 }
 
-.filmstrip {
+.map-container {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    max-height: 410px;
-    overflow-y: auto;
-    width: 100%;
 }
-.filmstrip img {
-    margin-bottom: 5px;
-    border: 3px solid black;
-    border-radius: 5px;
-}
-
 
 footer {
     background-color: #333;
@@ -128,4 +123,50 @@ img:last-child {
     footer p {
         font-size: 10px; /* Reduce font size for footer text */
     }
+}
+/* Медиазапрос для экранов шире 768px */
+@media (min-width: 768px) {
+    .weather-card {
+        width: 40%;  /* Карточки занимают 45% ширины, чтобы помещаться по две в строке */
+    }
+
+    .cards-container {
+        justify-content: space-between; /* Разделяем карточки по строкам для больших экранов */
+    }
+}
+.container {
+    max-width: 900px; /* Увеличиваем ширину контейнера для более удобного отображения */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.city-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Четыре колонки с одинаковой шириной */
+    gap: 10px; /* Промежуток между колонками */
+}
+
+.city-container {
+    border: 1px solid #ccc; /* Добавляем рамку вокруг каждой колонки для лучшего восприятия */
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9; /* Светло-серый фон для колонок */
+}
+
+.cards-container-week {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.weather-card-week {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
 }

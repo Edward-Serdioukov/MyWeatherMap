@@ -38,6 +38,7 @@
     <nav>
         <ul>
             <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Map</a></li>
+            <li><a href="{{ url_for('cities_week') }}" class="{% if request.endpoint == 'cities_week' %}active{% endif %}">Week</a></li>
         </ul>
     </nav>
     <div class="map-container">
@@ -62,6 +63,16 @@
                     }
                 }
             }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
         }
     </script>
     
