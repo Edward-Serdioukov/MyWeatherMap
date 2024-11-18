@@ -135,7 +135,7 @@ img:last-child {
     }
 }
 .container {
-    max-width: 900px; /* Увеличиваем ширину контейнера для более удобного отображения */
+    max-width: 720px; /* Увеличиваем ширину контейнера для более удобного отображения */
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
