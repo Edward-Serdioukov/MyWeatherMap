@@ -15,6 +15,8 @@ cities = [
     {'name': 'Prague', 'lat': 50.0878, 'lon': 14.4205}, 
     {'name': 'Marianske Lazne', 'lat': 49.96489, 'lon': 12.7007}, 
     {'name': 'Venezia', 'lat': 45.4944, 'lon': 12.3714}, 
+    {'name': 'Minsk', 'lat': 53.9044, 'lon': 27.5614}, 
+    {'name': 'Moscow', 'lat': 55.7558, 'lon': 37.6173}, 
     
     # Добавьте другие города по желанию
 ]
@@ -137,7 +139,7 @@ def get_weather_cities_week(city_name):
 
 @app.route('/sw.js')
 def serve_sw():
-    return send_file('sw.js', mimetype='application/javascript')
+   return send_file('sw.js', mimetype='application/javascript')
 
 @app.route('/manifest.json')
 def serve_manifest():
@@ -146,7 +148,7 @@ def serve_manifest():
 
 @app.route('/')
 def index():
-    folium_map = folium.Map(location=[48.0, 16.0], zoom_start=5)
+    folium_map = folium.Map(location=[48.0, 16.0], zoom_start=4)
     folium_map.get_root().header.add_child(folium.CssLink('css/style.css'))
     
     for city in cities:
@@ -189,10 +191,12 @@ def index():
 
 @app.route('/cities-week', methods=['GET'])
 def cities_week():
-    #cities = ['Milan', 'Venezia', 'Prague', 'Marianske Lazne']
+    cities_for_compare = ['Minsk', 'Moscow']
     cities_weather = []
     
     for city in cities:
+        if (city['name'] not in cities_for_compare) or (len(cities_weather) >= 2):
+            continue
         weather_data = get_weather_cities_week(city['name'])
         if weather_data:
             cities_weather.append(weather_data)
