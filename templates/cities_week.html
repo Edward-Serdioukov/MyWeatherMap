@@ -5,15 +5,15 @@
         <div class="city-grid">
             {% for city_weather in cities_weather %}
             <div class="city-container">
-                <h2>{{ city_weather.city }}</h2>
+                <b>{{ city_weather.city }}</b>
                 <div class="cards-container-week">
                     {% for day in city_weather.forecast %}
-                    <h3>{{ day.day }}</h3>
+                    <b>{{ day.day }}</b>
                     <div class="weather-card-week">
                         <img src="{{ day.icon }}" alt="{{ day.description }}" class="weather-icon">
                         <div class="weather-info">
                             <div class="weather-detail">
-                                <p>{{ day.temperature | round(2) }} °C</p>
+                                <p>{{ day.temperature | round() }} °C</p>
                             </div>
                         </div>
                     </div>

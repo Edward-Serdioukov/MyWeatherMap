@@ -20,9 +20,8 @@ cities = [
 ]
 
 def get_weather_day(city_name):
-    api_key = "6a9eedc6772205944011d6cbf0b0323f"
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    complete_url = f"{base_url}q={city_name}&appid={api_key}"
+    complete_url = f"{base_url}q={city_name}&appid={API_KEY}"
     
     response = requests.get(complete_url)
     
@@ -44,8 +43,8 @@ def get_weather_day(city_name):
         return {
             'day': day,
             'city': city_name,
-            'temperature': round(temperature_celsius, 2),
-            'pressure': round(pressure_mm_hg, 2),
+            'temperature': round(temperature_celsius),
+            'pressure': round(pressure_mm_hg),
             'humidity': main['humidity'],
             'wind_speed': wind['speed'],
             'description': weather_description,
@@ -55,8 +54,7 @@ def get_weather_day(city_name):
         return None
 
 def get_weather_week(city_name):
-    api_key = "6a9eedc6772205944011d6cbf0b0323f"
-    geocoding_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&appid={api_key}"
+    geocoding_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&appid={API_KEY}"
     geo_response = requests.get(geocoding_url)
 
     if geo_response.status_code == 200:
@@ -67,7 +65,7 @@ def get_weather_week(city_name):
         lat = geo_data[0]['lat']
         lon = geo_data[0]['lon']
         
-        weather_url = f"http://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={api_key}"
+        weather_url = f"http://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={API_KEY}"
         response = requests.get(weather_url)
         
         if response.status_code == 200:
@@ -77,11 +75,15 @@ def get_weather_week(city_name):
             for day in data['daily']:
                 # Преобразование метки времени в день недели
                 day_name = datetime.datetime.fromtimestamp(day['dt']).strftime('%A')
+                # Преобразуем температуру в градусы Цельсия
+                temperature_celsius = day['temp']['day'] - 273.15
+                # Преобразуем давление в мм рт. ст.
+                pressure_mm_hg = day['pressure'] * 0.75006375541921
                 
                 daily_forecast.append({
                     'day': day_name,  # Передаем уже отформатированное имя дня
-                    'temperature': day['temp']['day'] - 273.15,
-                    'pressure': day['pressure'] * 0.75006375541921,
+                    'temperature': round(temperature_celsius),
+                    'pressure': round(pressure_mm_hg),
                     'humidity': day['humidity'],
                     'wind_speed': day['wind_speed'],
                     'description': day['weather'][0]['description'],
@@ -95,8 +97,7 @@ def get_weather_week(city_name):
         return None
 
 def get_weather_cities_week(city_name):
-    api_key = "6a9eedc6772205944011d6cbf0b0323f"
-    geocoding_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&appid={api_key}"
+    geocoding_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&appid={API_KEY}"
     geo_response = requests.get(geocoding_url)
 
     if geo_response.status_code == 200:
@@ -107,7 +108,7 @@ def get_weather_cities_week(city_name):
         lat = geo_data[0]['lat']
         lon = geo_data[0]['lon']
         
-        weather_url = f"http://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={api_key}"
+        weather_url = f"http://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={API_KEY}"
         response = requests.get(weather_url)
         
         if response.status_code == 200:
@@ -157,26 +158,21 @@ def index():
         #popup_html += f"{weather_today['temperature']}°C, {weather_today['description']}<br>"
         
         weather_day = get_weather_day(city['name'])
+        popup_html = f"<b>{city['name']}</b><br>"
         if weather_day:
-            # Начинаем строить HTML для попапа
-            popup_html = f"<b>{city['name']}</b><br>"
             popup_html += "<table border='1' style='width: 100%; border-collapse: collapse;'>"
             
-            # Добавляем три столбца, каждый из которых будет содержать три строки с данными
             popup_html += "<tr>"
             popup_html += "<td style='padding: 10px; vertical-align: top;'>"
-                
-                # В каждом столбце — три строки (по одному дню)
-            
+         
             popup_html += f"<div style='margin-bottom: 10px;'>"
             popup_html += f"<b>{weather_day['day']}</b><br>"
             popup_html += f"<img src='{weather_day['icon']}'><br>"
-            popup_html += f"<b>{round(weather_day['temperature'], 1)}°C</b><br>"
+            popup_html += f"<b>{round(weather_day['temperature'], 0)}°C</b><br>"
             popup_html += f"<i>{weather_day['description']}</i><br>"
             popup_html += "</div>"
                 
             popup_html += "</td>"
-
             popup_html += "</tr></table>"
         
         # Добавляем маркер на карту
@@ -184,7 +180,7 @@ def index():
             location=(city['lat'], city['lon']),
             popup=popup_html,
             #icon=folium.DivIcon(html=f"""<div style="font-family: courier new; color: red; font-weight: bold">{city['name']}, {weather_today['temperature']}°C</div>"""),
-            tooltip=f"{city['name']}: {weather_day['day']}, {round(weather_day['temperature'])}°C, {weather_day['description']}"
+            tooltip=f"{city['name']}: {round(weather_day['temperature'])}°C"
         ).add_to(folium_map)
         
 
