@@ -17,9 +17,11 @@ cities = [
     {'name': 'Venezia', 'lat': 45.4944, 'lon': 12.3714}, 
     {'name': 'Minsk', 'lat': 53.9044, 'lon': 27.5614}, 
     {'name': 'Moscow', 'lat': 55.7558, 'lon': 37.6173}, 
-    
-    # Добавьте другие города по желанию
+    {'name': 'Poznan', 'lat': 52.4064, 'lon': 16.9252},      
+    {'name': 'Warsaw', 'lat': 52.2297, 'lon': 21.0122},   
+    {'name': 'Vilnius', 'lat': 54.6872, 'lon': 25.2797},  
 ]
+
 
 def get_weather_day(city_name):
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
