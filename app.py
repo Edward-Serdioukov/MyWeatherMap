@@ -183,6 +183,7 @@ def index():
         folium.Marker(
             location=(city['lat'], city['lon']),
             popup=popup_html,
+            icon=folium.Icon(icon="cloud"),
             #icon=folium.DivIcon(html=f"""<div style="font-family: courier new; color: red; font-weight: bold">{city['name']}, {weather_today['temperature']}°C</div>"""),
             tooltip=f"{city['name']}: {round(weather_day['temperature'])}°C"
         ).add_to(folium_map)
@@ -252,6 +253,7 @@ def index_week():
         folium.Marker(
             location=(city['lat'], city['lon']),
             popup=popup_html,
+            icon=folium.Icon(icon="cloud"),
             #icon=folium.DivIcon(html=f"""<div style="font-family: courier new; color: red; font-weight: bold">{city['name']}, {weather_today['temperature']}°C</div>"""),
             tooltip=f"{city['name']}: {weather_week[0]['day']}, {round(weather_week[0]['temperature'])}°C, {weather_week[0]['description']}"
         ).add_to(folium_map)
